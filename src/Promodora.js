@@ -6,7 +6,7 @@ const Tab = styled.button`
   padding: 10px 30px;
   cursor: pointer;
   opacity: 0.6;
-  background: white;
+  background : white;
   border: 0;
   outline: 0;
   border-bottom: 2px solid transparent;
@@ -18,6 +18,8 @@ const Tab = styled.button`
     opacity: 1;
   `}
 `;
+
+
 
 export default function Promodora() {
     const [minutes, setMinutes] = useState(1);
@@ -81,12 +83,16 @@ export default function Promodora() {
   }
 
   const setTime = (type)=>{
-      alert("are you want to stop")
         setActive(type)
         if(type==="Pomodoro"){
             setShortBreak(false)
-            setShortMinutes(3)
+            setLongBreak(false)
+           
             setShortSeconds(0)
+            setShortMinutes(3)
+
+            setLongSeconds(0)
+            setLongMinutes(12)
 
             setLongStart(false)
             setShortStart(false)
@@ -97,8 +103,14 @@ export default function Promodora() {
         }
         if(type==="Short Break"){
             setStart(false)
-            setMinutes(1)
+            setLongBreak(false)
+            
             setSeconds(0)
+            setMinutes(1)
+
+            setLongSeconds(0)
+            setLongMinutes(12)
+
             setLongStart(false)
             setPromodoro(false)
             setShortStart(true)
@@ -107,9 +119,18 @@ export default function Promodora() {
            
         }
         if(type==="Long Break"){
-            setPromodoro(false)
-            setShortStart(false)
-            setLongStart(true)
+          setShortBreak(false)
+          setStart(false)
+
+          setSeconds(0)
+          setMinutes(1)
+
+          setShortSeconds(0)
+          setShortMinutes(3)
+
+          setPromodoro(false)
+          setShortStart(false)
+          setLongStart(true)
         }
   }
   
@@ -162,7 +183,8 @@ export default function Promodora() {
  
     return (
         
-        <div className="pomodoro">
+        <div >
+         
             <div>
                 
         {button.map((type) => (
@@ -178,21 +200,25 @@ export default function Promodora() {
       <div className="message">
         
       </div>
-      <div className="timer">
+      <div className="pomodoro">
+       
      {promodoro && `${timerMinutes}:${timerSeconds}`} 
      {shortStart && `${ShortTimeimerMinutes}:${ShortTimeSeconds}`}
      {longStart && `${LongTimeMinutes}:${LongTimeSeconds}`}
       </div>
       {promodoro && <><button onClick={tick}>START</button>
       <button onClick={stop}>STOP</button>
-      <button onClick={reset}>RESET</button></>}
+      <p>Time to work</p></>}
 
       {shortStart && <><button onClick={clickShort}>START</button>
-      <button onClick={clickShortStop}>STOP</button></>}
+      <button onClick={clickShortStop}>STOP</button>
+      <p>Time for a break</p></>}
 
       {longStart && <><button onClick={clickLong}>START</button>
-      <button onClick={clickLongStop}>STOP</button></>}
+    {setLongBreak && <button onClick={clickLongStop}>STOP</button>}
+      <p>Time for a break</p></>}
       
+    
     </div>
     )
     
