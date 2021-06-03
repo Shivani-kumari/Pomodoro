@@ -1,17 +1,27 @@
-import React ,{useState} from 'react'
-import { Button } from 'antd';
+import React from 'react'
+import TaskForm from './pomodoraComponents/TaskForm'
+import TaskContextProvider from './pomodoraContext/TaskListContext'
+import TaskList from './pomodoraComponents/TaskList'
+
+
+
+
+
+
+
 function PomodoraTasks() {
-    const [open,setOpen] = useState(false)
+   
+
     return (
-        <div>
+        <TaskContextProvider>
+             <div className="main">
+           <TaskForm/>
+           <br/>
+           <TaskList/>
+           </div>
+            
            
-           {
-               open === false && 
-               <Button type="dashed" block size="large">
-               Dashed
-                </Button>
-           } 
-        </div>
+        </TaskContextProvider>
     )
 }
 
