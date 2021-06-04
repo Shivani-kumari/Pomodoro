@@ -107,7 +107,7 @@ export default function TaskForm() {
             {
                 open === true &&
 
-                <Card style={{ width: "300px", backgroundColor: "pink" }}>
+                <Card style={{ width: "300px", backgroundColor: "pink",padding:"20px" }}>
                 <Input placeholder="What are you Working on ?" value={title} 
                 bordered={false} onChange={handleChange} />
                 
