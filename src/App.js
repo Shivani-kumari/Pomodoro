@@ -5,8 +5,8 @@ import Task from './Tasks'
 import PromodoraTasks from './PomodoraTasks'
 export default function App() {
   return (
-   <div style={{width : "100%"}}>
-   <div style={{width:"50%", height: "100px" ,float: "left" ,paddingLeft:'10px' ,paddingTop:'10px'}}>
+   <div style={{width : "100%",padding:'30px'}}>
+   <div style={{width:"50%", height: "100px" ,float: "left" }}>
    <Promodora/>
    </div>
     

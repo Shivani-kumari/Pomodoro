@@ -118,7 +118,7 @@ export default function TaskForm() {
                 <br/>
                 {editItem !== null && <DeleteButton onClick={()=>removeTask(editItem.id)}>Delete</DeleteButton>}
                 <CancelButton onClick={clickClose}>Cancel</CancelButton>
-                <SaveButton onClick={handleSubmit}>Save</SaveButton>
+                <SaveButton onClick={handleSubmit} disabled={title == ""}>Save</SaveButton>
                 
             </Card>
             }
