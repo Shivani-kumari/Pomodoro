@@ -43,11 +43,10 @@ function TaskForm() {
           {editItem ? 'Edit Task' : 'Add Task'}
          
         </button>
-        <button className="btn clear-btn"
-        //  onClick={clearList}
-         >
-          Clear
-        </button>
+        {/* <button className="btn clear-btn" */}
+        
+          {/* Clear */}
+        {/* </button> */}
       </div>
        </form>
     )

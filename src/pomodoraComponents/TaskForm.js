@@ -102,7 +102,7 @@ export default function TaskForm() {
            
            {
                open === false && 
-               <OpenButton onClick={clickOpen}><PlusCircleOutlined />  Primary Button</OpenButton>
+               <OpenButton onClick={clickOpen}><PlusCircleOutlined />Add Tasks</OpenButton>
            }
             {
                 open === true &&
@@ -118,7 +118,7 @@ export default function TaskForm() {
                 <br/>
                 {editItem !== null && <DeleteButton onClick={()=>removeTask(editItem.id)}>Delete</DeleteButton>}
                 <CancelButton onClick={clickClose}>Cancel</CancelButton>
-                <SaveButton onClick={handleSubmit} disabled={title == ""}>Save</SaveButton>
+                <SaveButton onClick={handleSubmit} disabled={title ==""}>Save</SaveButton>
                 
             </Card>
             }

@@ -3,20 +3,59 @@ import React,{useState} from 'react'
 import styled from "styled-components";
 
 const Tab = styled.button`
-  padding: 10px 30px;
-  cursor: pointer;
-  opacity: 0.6;
-  background : white;
-  border: 0;
-  outline: 0;
-  border-bottom: 2px solid transparent;
-  transition: ease border-bottom 250ms;
+opacity: 0.6;
+ background : white;
+padding: 8px 28px;
+border-radius: 20px;
+line-height: 24px;
+font-size: 14px;
+font-weight: 600;
+letter-spacing: .02em;
+border: none;
+background : white;
+outline: none;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+  margin-right: 20px;
   ${({ active }) =>
     active &&
     `
     border-bottom: 2px solid black;
     opacity: 1;
   `}
+`;
+
+const StartButton = styled.button`
+padding: 8px 28px;
+border-radius: 20px;
+line-height: 24px;
+font-size: 14px;
+font-weight: 600;
+letter-spacing: .02em;
+border: none;
+background : white;
+outline: none;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+margin-right: 20px;
+`;
+
+const StopButton = styled.button`
+padding: 8px 28px;
+border-radius: 20px;
+line-height: 24px;
+font-size: 14px;
+font-weight: 600;
+letter-spacing: .02em;
+border: none;
+background : white;
+outline: none;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+margin-right: 20px;
 `;
 
 
@@ -206,16 +245,16 @@ export default function Promodora() {
      {shortStart && `${ShortTimeimerMinutes}:${ShortTimeSeconds}`}
      {longStart && `${LongTimeMinutes}:${LongTimeSeconds}`}
       </div>
-      {promodoro && <><button onClick={tick}>START</button>
-      <button onClick={stop}>STOP</button>
+      {promodoro && <><StartButton onClick={tick}>START</StartButton>
+      <StopButton onClick={stop}>STOP</StopButton>
       <p>Time to work</p></>}
 
-      {shortStart && <><button onClick={clickShort}>START</button>
-      <button onClick={clickShortStop}>STOP</button>
+      {shortStart && <><StartButton onClick={clickShort}>START</StartButton>
+      <StopButton onClick={clickShortStop}>STOP</StopButton>
       <p>Time for a break</p></>}
 
-      {longStart && <><button onClick={clickLong}>START</button>
-    {setLongBreak && <button onClick={clickLongStop}>STOP</button>}
+      {longStart && <><StartButton onClick={clickLong}>START</StartButton>
+    {setLongBreak && <StopButton onClick={clickLongStop}>STOP</StopButton>}
       <p>Time for a break</p></>}
       
     
