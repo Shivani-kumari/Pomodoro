@@ -61,7 +61,7 @@ margin-right: 20px;
 
 
 export default function Promodora() {
-    const [minutes, setMinutes] = useState(1);
+    const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
   const [displayMessage, setDisplayMessage] = useState(false);
   const [start,setStart] = useState(false)
@@ -70,11 +70,11 @@ export default function Promodora() {
   const[shortBreak,setShortBreak] =useState(false)
   const [longBreak,setLongBreak] = useState(false)
 
-  const[shortMinutes,setShortMinutes] = useState(3)
+  const[shortMinutes,setShortMinutes] = useState(5)
   const [shortSeconds,setShortSeconds]=useState(0)
   const [shortStart,setShortStart] = useState(false)
 
-    const [longMinutes,setLongMinutes] = useState(12)
+    const [longMinutes,setLongMinutes] = useState(60)
     const [longSeconds,setLongSeconds]=useState(0)
     const [longStart,setLongStart] = useState(false)
 
@@ -125,35 +125,34 @@ export default function Promodora() {
         setActive(type)
         if(type==="Pomodoro"){
             setShortBreak(false)
+            
             setLongBreak(false)
            
             setShortSeconds(0)
-            setShortMinutes(3)
+            setShortMinutes(5)
 
             setLongSeconds(0)
-            setLongMinutes(12)
+            setLongMinutes(60)
 
             setLongStart(false)
             setShortStart(false)
             setPromodoro(true)
-
-            
             
         }
         if(type==="Short Break"){
             setStart(false)
+            
             setLongBreak(false)
             
             setSeconds(0)
-            setMinutes(1)
+            setMinutes(25)
 
             setLongSeconds(0)
-            setLongMinutes(12)
+            setLongMinutes(60)
 
             setLongStart(false)
             setPromodoro(false)
             setShortStart(true)
-
             
            
         }
@@ -162,10 +161,10 @@ export default function Promodora() {
           setStart(false)
 
           setSeconds(0)
-          setMinutes(1)
+          setMinutes(25)
 
           setShortSeconds(0)
-          setShortMinutes(3)
+          setShortMinutes(5)
 
           setPromodoro(false)
           setShortStart(false)

@@ -51,7 +51,7 @@ body {
   /* background-image: url("../src/rainbow-mountains-1-1200x800.jpg"); */
   /* color: hsl(26, 64%, 77%); */
   position: relative;
-  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("../src/rainbow-mountains-1-1200x800.jpg");
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("../src/Snowfall.jpg");
   color:whitesmoke;
   height: 100vh;
   width: 100vw;
@@ -204,10 +204,11 @@ cursor: pointer;
   justify-content: space-between;
   margin: 20px 0;
   padding-bottom: 5px;
+  color: whitesmoke;
 }
 
 .list-item span {
-  color: #999;
+  color:whitesmoke;
 }
 
 .task-btn {
@@ -219,13 +220,13 @@ cursor: pointer;
 
 .btn-delete i {
   font-size: 16px;
-  color: #bbb;
+  color: red;
   margin-right: 20px;
 }
 
 .btn-edit i {
   font-size: 16px;
-  color: #bbb;
+  color: blueviolet;
   margin-right: 20px;
 }
 
