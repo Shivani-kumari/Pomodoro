@@ -1,6 +1,7 @@
 
 import React,{useState} from 'react'
 import styled from "styled-components";
+import {Howl, Howler} from 'howler';
 
 const Tab = styled.button`
 opacity: 0.6;
@@ -70,7 +71,7 @@ export default function Promodora() {
   const[shortBreak,setShortBreak] =useState(false)
   const [longBreak,setLongBreak] = useState(false)
 
-  const[shortMinutes,setShortMinutes] = useState(5)
+  const[shortMinutes,setShortMinutes] = useState(1)
   const [shortSeconds,setShortSeconds]=useState(0)
   const [shortStart,setShortStart] = useState(false)
 
@@ -80,9 +81,7 @@ export default function Promodora() {
 
   const [button]=useState( ["Pomodoro", "Short Break", "Long Break"])
   const [active, setActive] = useState(button[0]);
-
   
-
   const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
   const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
@@ -121,6 +120,14 @@ export default function Promodora() {
       setLongBreak(false)
   }
 
+  const soundPlay = (src)=>{
+    const sound = new Howl ({
+      src,
+      html5:true
+    })
+    sound.play()
+  }
+
   const setTime = (type)=>{
         setActive(type)
         if(type==="Pomodoro"){
@@ -129,7 +136,7 @@ export default function Promodora() {
             setLongBreak(false)
            
             setShortSeconds(0)
-            setShortMinutes(5)
+            setShortMinutes(1)
 
             setLongSeconds(0)
             setLongMinutes(60)
@@ -164,7 +171,7 @@ export default function Promodora() {
           setMinutes(25)
 
           setShortSeconds(0)
-          setShortMinutes(5)
+          setShortMinutes(1)
 
           setPromodoro(false)
           setShortStart(false)
@@ -195,12 +202,13 @@ export default function Promodora() {
               if (shortMinutes !== 0) {
                 setShortSeconds(59);
                 setShortMinutes(shortMinutes - 1);
-              } 
+              }else{
+                soundPlay("https://assets.coderrocketfuel.com/pomodoro-times-up.mp3")
+              }
             } else {
               setShortSeconds(shortSeconds - 1);
             }
           }, 1000);
-    
     }
     if(longBreak){
         const interval = setInterval(() => {
@@ -216,6 +224,8 @@ export default function Promodora() {
             }
           }, 1000);
     }
+
+    
         
     
  
@@ -223,7 +233,7 @@ export default function Promodora() {
         
         <div >
          
-            <div>
+            <div style={{textAlign:"center"}}>
                 
         {button.map((type) => (
           <Tab
@@ -244,18 +254,17 @@ export default function Promodora() {
      {shortStart && `${ShortTimeimerMinutes}:${ShortTimeSeconds}`}
      {longStart && `${LongTimeMinutes}:${LongTimeSeconds}`}
       </div>
-      {promodoro && <><StartButton onClick={tick}>START</StartButton>
+      {promodoro && <div style={{textAlign:"center"}}><StartButton onClick={tick}>START</StartButton>
       <StopButton onClick={stop}>STOP</StopButton>
-      <p>Time to work</p></>}
+      <p>Time to work</p></div>}
 
-      {shortStart && <><StartButton onClick={clickShort}>START</StartButton>
+      {shortStart && <div style={{textAlign:"center"}}><StartButton onClick={clickShort}>START</StartButton>
       <StopButton onClick={clickShortStop}>STOP</StopButton>
-      <p>Time for a break</p></>}
+      <p>Time for a break</p></div>}
 
-      {longStart && <><StartButton onClick={clickLong}>START</StartButton>
+      {longStart && <div style={{textAlign:"center"}}><StartButton onClick={clickLong}>START</StartButton>
     {setLongBreak && <StopButton onClick={clickLongStop}>STOP</StopButton>}
-      <p>Time for a break</p></>}
-      
+      <p>Time for a break</p></div>}
     
     </div>
     )

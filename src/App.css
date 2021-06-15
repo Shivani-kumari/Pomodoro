@@ -51,7 +51,7 @@ body {
   /* background-image: url("../src/rainbow-mountains-1-1200x800.jpg"); */
   /* color: hsl(26, 64%, 77%); */
   position: relative;
-  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("../src/Snowfall.jpg");
+  /* background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url("../src/Snowfall.jpg"); */
   color:whitesmoke;
   height: 100vh;
   width: 100vw;
@@ -208,7 +208,7 @@ cursor: pointer;
 }
 
 .list-item span {
-  color:whitesmoke;
+  color:black;
 }
 
 .task-btn {

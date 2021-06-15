@@ -6,8 +6,8 @@ const TaskList = () => {
     return (
         <div>
            <ul className="list">
-               {tasks.map((task)=>{
-                   return <Task task={task} key={task.id}/>
+               {tasks.map((task,index)=>{
+                   return <Task task={task} key={task.id} index={index}/>
                })}
            </ul>
         </div>

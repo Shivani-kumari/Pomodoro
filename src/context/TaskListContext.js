@@ -8,9 +8,16 @@ function TaskContextProvider(props) {
 
 const [editItem,setEditItem] = useState(null)
 
+const [putTask,setPutTask] = useState("Hello")
 const addTask = (title)=>{
     setTasks([...tasks,{title,id:uuidv4()}])
 }
+
+const displayTask = (taskId) =>{
+    
+    setPutTask(tasks[taskId])
+}
+
 
 const removeTask = id =>{
     setTasks(tasks.filter((task)=>task.id !== id))
@@ -40,7 +47,9 @@ localStorage.setItem("tasks",JSON.stringify(tasks))
              removeTask,
              findItem,
              editItem,
-             editTask}}>
+             editTask,
+             displayTask,
+             putTask}}>
                 {props.children}
             </TaskListContext.Provider> 
         </div>

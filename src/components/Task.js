@@ -1,11 +1,14 @@
 import React , {useContext} from 'react'
 import {TaskListContext} from '../context/TaskListContext'
 
-function Task({task}) {
-    const {removeTask,findItem} = useContext(TaskListContext)
+function Task({task,index}) {
+    const {removeTask,findItem,displayTask} = useContext(TaskListContext)
     const [checked, setChecked] = React.useState(false);
+    
     return (
-        <div>
+        <div 
+        onClick={()=>displayTask(task.id)}
+        >
             <li className="list-item">
             <label>
             <input type="checkbox"
